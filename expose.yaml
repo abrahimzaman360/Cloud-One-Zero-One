@@ -1,0 +1,15 @@
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: myexposedjob
+spec:
+  selector:
+    app: ioxpress
+  type: NodePort
+  ports:
+  - name: ioxpress-port
+    protocol: TCP
+    port: 80
+    targetPort: 3000
+    nodePort: 30001

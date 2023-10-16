@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ioxpress-app
+  labels:
+    app: ioxpress
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: ioxpress
+  template:
+    metadata:
+      labels:
+        app: ioxpress
+    spec:
+      containers:
+      - name: ioxpress
+        image: abrahimzaman360/ioxpress-app:v3
+        ports:
+        - containerPort: 3000
